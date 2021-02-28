@@ -1,13 +1,6 @@
 import React from "react"
+import BaseLayout from "./base"
 
-const Base: React.FC<{}> = ({ children }) => {
-  return (
-    <>
-      <h4>Base Layout</h4>
-      {children}
-    </>
-  )
-}
 const Main: React.FC<{}> = ({ children }) => {
   return (
     <>
@@ -24,6 +17,7 @@ type Props = {
   }
   [x: string]: any
 }
+
 const Layout: React.FC<Props> = props => {
   const {
     pageContext: { layout },
@@ -31,7 +25,7 @@ const Layout: React.FC<Props> = props => {
 
   switch (layout) {
     case "base":
-      return <Base {...(props as any)} />
+      return <BaseLayout {...(props as any)} />
     default:
       return <Main {...(props as any)} />
   }
