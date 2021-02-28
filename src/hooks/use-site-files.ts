@@ -5,6 +5,7 @@ type SiteFiles = {
     nodes: {
       name: string
       publicURL: string
+      relativeDirectory: string
     }[]
   }
 }
@@ -17,6 +18,7 @@ function useSiteFiles() {
           nodes {
             name
             publicURL
+            relativeDirectory
           }
         }
       }
