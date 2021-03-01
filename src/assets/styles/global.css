@@ -23,6 +23,7 @@ body {
   position: relative;
   margin: 0 15px;
   height: calc(100% - 80px);
+  margin-top: 80px;
 }
 
 .header {
@@ -30,14 +31,67 @@ body {
   height: 80px;
   background: #ffffff;
   box-shadow: inset 0px -1px 0px #e2e2ea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
 }
 
 .header > .logo {
-  position: absolute;
   width: 112px;
   height: 32px;
   left: 25px;
   top: 26px;
+}
+
+.header > .search {
+  position: relative;
+  width: 500px;
+  height: 37px;
+}
+
+.header > .search > .field {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #fafafb;
+  border: 1px solid #f1f1f5;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.header > .search > .field > input {
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #92929d;
+  width: calc(100% - 58px);
+  height: 90%;
+  position: absolute;
+  left: 10px;
+  background: inherit;
+}
+
+.header > .search > .field > .icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 10px;
+  top: calc(50% - 24px / 2 + 0.5px);
+  cursor: pointer;
+}
+
+.header > .actions > img {
+  cursor: pointer;
+  margin: 0 10px;
 }
 
 .not-found {
@@ -57,16 +111,24 @@ body {
   margin: 0;
 }
 
-@media (min-width: 767px) {
-  .container {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
 @media (min-width: 992px) {
   .container {
     width: 75%;
-    margin: 0 auto;
+  }
+
+  .header > .grow {
+    flex-grow: 1;
+  }
+
+  .header > .logo {
+    margin-right: 100px;
+  }
+}
+
+@media (min-width: 767px) {
+  .container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
