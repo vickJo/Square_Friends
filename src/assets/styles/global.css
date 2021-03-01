@@ -23,7 +23,6 @@ body {
   position: relative;
   margin: 0 15px;
   height: calc(100% - 80px);
-  margin-top: 80px;
 }
 
 .header {
@@ -47,8 +46,9 @@ body {
 
 .header > .search {
   position: relative;
-  width: 500px;
+  width: 20rem;
   height: 37px;
+  display: none;
 }
 
 .header > .search > .field {
@@ -123,6 +123,10 @@ body {
   .header > .logo {
     margin-right: 100px;
   }
+
+  .header > .search {
+    width: 500px;
+  }  
 }
 
 @media (min-width: 767px) {
@@ -130,5 +134,15 @@ body {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .header > .search {
+    display: block;
+  }
+}
+
+@media(max-width: 567px) {
+  .no-xs {
+    display: none !important;
   }
 }

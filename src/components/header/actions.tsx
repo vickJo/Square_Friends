@@ -13,9 +13,16 @@ const Logo: React.FC<{}> = () => {
 
   return (
     <div className="actions">
-      {["user", "chat", "notification", "avatar",].map(name => {
+      {["user", "chat", "notification", "avatar"].map(name => {
         const icon = getIcon(name)
-        return <img key={name} src={icon.publicURL} alt={icon.name} />
+        return (
+          <img
+            key={name}
+            className={name === "avatar" ? "" : "no-xs"}
+            src={icon.publicURL}
+            alt={icon.name}
+          />
+        )
       })}
     </div>
   )
