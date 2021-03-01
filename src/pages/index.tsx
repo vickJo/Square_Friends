@@ -1,9 +1,22 @@
 import React from "react"
+import { graphql, PageProps } from "gatsby"
 
 import SEO from "../components/seo"
 import PageTitle from "../components/page-title"
 
-const Index: React.FC<{}> = () => {
+type Props = PageProps & {
+  data: {
+    allFile: {
+      nodes: {
+        name: string
+        publicURL: string
+        relativeDirectory: string
+      }[]
+    }
+  }
+}
+
+const Index: React.FC<Props> = ({ ...props }) => {
   return (
     <>
       <SEO title="Friends List" />
@@ -12,4 +25,15 @@ const Index: React.FC<{}> = () => {
   )
 }
 
+export const PageQuery = graphql`
+  query {
+    allFile {
+      nodes {
+        name
+        publicURL
+        relativeDirectory
+      }
+    }
+  }
+`
 export { Index as default }
