@@ -1,42 +1,58 @@
 [
   {
+    "id": 0,
     "name": "Mayke Schuurs",
     "social": "@maymayke",
-    "bio": "Not a Man but a Ghost 👻"
+    "bio": "Not a Man but a Ghost 👻",
+    "date": "2021-03-02T20:07:07.134Z"
   },
   {
+    "id": 1,
     "name": "Tiontay Carroll",
     "social": "@tatay",
-    "bio": "Interaction Designer | Coffe Addict | Part time Traveller | Full time Mom of Baby and Bayi."
+    "bio": "Interaction Designer | Coffe Addict | Part time Traveller | Full time Mom of Baby and Bayi.",
+    "date": "2021-03-01T14:07:07.134Z"
   },
   {
+    "id": 2,
     "name": "Ngô Hải Giang",
     "social": "@ngohaitong",
-    "bio": "Pushing pixels and experiences in digital products for onetwothree | Coffee(nosugar)"
+    "bio": "Pushing pixels and experiences in digital products for onetwothree | Coffee(nosugar)",
+    "date": "2020-03-02T20:07:07.134Z"
   },
   {
+    "id": 3,
     "name": "Chineze Uchechey",
     "social": "@chinezeulala",
-    "bio": "Youtube Content Creator | Photography | Profesional Videographer"
+    "bio": "Youtube Content Creator | Photography | Profesional Videographer",
+    "date": "2021-03-02T16:07:07.134Z"
   },
   {
+    "id": 4,
     "name": "Xian Zhou",
     "social": "@Xianzon",
-    "bio": "Life is a Choice baby :)"
+    "bio": "Life is a Choice baby :)",
+    "date": "2019-03-02T20:07:07.134Z"
   },
   {
+    "id": 5,
     "name": "Anje Keizer",
     "social": "@anjedrive",
-    "bio": "Not a Man but a Ghost 👻"
+    "bio": "Not a Man but a Ghost 👻",
+    "date": "2020-04-02T20:07:07.134Z"
   },
   {
+    "id": 6,
     "name": "Njimoluh Ebua",
     "social": "@njipanji",
-    "bio": "Student Educational Technology'14 State University of Brooklyn 😉"
+    "bio": "Student Educational Technology'14 State University of Brooklyn 😉",
+    "date": "2020-08-02T20:07:07.134Z"
   },
   {
+    "id": 7,
     "name": "Isaac Hunt",
     "social": "@isaachunt",
-    "bio": "Student Educational Technology'14 State University of Brooklyn 😉"
+    "bio": "Student Educational Technology'14 State University of Brooklyn 😉",
+    "date": "2018-03-02T20:07:07.134Z"
   }
 ]

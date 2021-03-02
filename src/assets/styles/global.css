@@ -11,10 +11,7 @@ body {
 
 .wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
   font-size: 0.85rem;
   color: #222;
 }
@@ -24,6 +21,7 @@ body {
   margin: 0 15px;
   height: calc(100% - 80px);
   padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .header {
@@ -176,6 +174,96 @@ body {
   transform: scale(0.7);
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.card {
+  width: 300px;
+  height: 246px;
+  background: #ffffff;
+  border-radius: 15px;
+  position: relative;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.card > .avatar {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 19px;
+  top: 81px;
+}
+
+.card > .avatar > img {
+  width: 100%;
+}
+
+.card > .profile {
+  position: absolute;
+  left: 25.62%;
+  right: 3.96%;
+  top: 46.75%;
+  bottom: 20.73%;
+}
+
+.card > .profile > h2 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 17px;
+  color: #171725;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.card > .profile > h5 {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.1px;
+  color: #92929d;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.card > .profile > p {
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 22px;
+  letter-spacing: 0.1px;
+  color: #44444f;
+  margin: 0;
+}
+
+.card > .action {
+  position: absolute;
+  width: 80px;
+  right: 20px;
+  top: 46.75%;
+  bottom: 41.87%;
+}
+
+.card > .action > .card-action {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  color: #0062ff;
+  border: 1px solid #0062ff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card > .action > .card-action.active {
+  background: #0062ff;
+  color: #fafafb;
+}
+
 @media (max-width: 567px) {
   .no-xs {
     display: none !important;
@@ -194,6 +282,38 @@ body {
   }
 }
 
+@media (min-width: 400px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media (min-width: 567px) {
+  .card {
+    width: 480px;
+  }
+
+  .card > .avatar {
+    width: 88px;
+    height: 88px;
+  }
+
+  .card > .profile > h2 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .card > .profile > h5 {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .card > .profile > p {
+    font-size: 14px;
+    line-height: 26px;
+  }
+}
+
 @media (min-width: 767px) {
   .container {
     width: 90%;
@@ -203,6 +323,32 @@ body {
 
   .header > .search {
     display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card {
+    width: calc(50% - 15px);
+  }
+  
+  .card > .avatar {
+    width: 54px;
+    height: 54px;
+  }
+  
+  .card > .profile > h2 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  
+  .card > .profile > h5 {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  
+  .card > .profile > p {
+    font-size: 12px;
+    line-height: 22px;
   }
 }
 
@@ -221,5 +367,11 @@ body {
 
   .header > .search {
     width: 500px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: calc(50% - 30px);
   }
 }

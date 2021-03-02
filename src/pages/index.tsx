@@ -1,21 +1,15 @@
 import React from "react"
-import { graphql, PageProps } from "gatsby"
+import { PageProps } from "gatsby"
 
 import SEO from "../components/seo"
-import PageTitle from "../components/page-title"
 import Icon from "../components/icon"
+import PageTitle from "../components/page-title"
+import UserCard from "../components/card"
+import { useGetFriends } from "../hooks/use-get-friends"
 
-type DataProps = {
-  allFile: {
-    nodes: {
-      name: string
-      publicURL: string
-      relativeDirectory: string
-    }[]
-  }
-}
+const Index: React.FC<PageProps> = props => {
+  const friendsList = useGetFriends()
 
-const Index: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <>
       <SEO title="Friends List" />
@@ -35,19 +29,30 @@ const Index: React.FC<PageProps<DataProps>> = ({ data }) => {
           </div>
         }
       />
+
+      <div className="card-container">
+        {friendsList.map(friend => {
+          const { id, name, social, bio, following } = friend
+
+          return (
+            <UserCard
+              key={id}
+              title={name}
+              subtitle={social}
+              description={bio}
+              avatar={<Icon name={`${id}`} directory={"profiles"} />}
+              bannerName={`${id}`}
+              action={
+                <div className={`card-action ${following ? "active" : ""}`}>
+                  {following ? "Following" : "Follow"}
+                </div>
+              }
+            />
+          )
+        })}
+      </div>
     </>
   )
 }
 
-export const PageQuery = graphql`
-  query {
-    allFile {
-      nodes {
-        name
-        publicURL
-        relativeDirectory
-      }
-    }
-  }
-`
 export { Index as default }
