@@ -8,7 +8,9 @@ import UserCard from "../components/card"
 import { useGetFriends } from "../hooks/use-get-friends"
 
 const Index: React.FC<PageProps> = props => {
-  const friendsList = useGetFriends()
+  const { friends, toggleFavorite } = useGetFriends()
+
+  const friendsList = friends
 
   return (
     <>
@@ -43,7 +45,10 @@ const Index: React.FC<PageProps> = props => {
               avatar={<Icon name={`${id}`} directory={"profiles"} />}
               bannerName={`${id}`}
               action={
-                <div className={`card-action ${following ? "active" : ""}`}>
+                <div
+                  className={`card-action ${following ? "active" : ""}`}
+                  onClick={toggleFavorite(id)}
+                >
                   {following ? "Following" : "Follow"}
                 </div>
               }

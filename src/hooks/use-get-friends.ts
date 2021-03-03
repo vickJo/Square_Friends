@@ -1,3 +1,4 @@
+import React from "react"
 import Data from "../data/friendsList.json"
 
 type FriendPayload = {
@@ -22,7 +23,27 @@ function useGetFriends() {
     return data
   }
 
-  return getData()
+  const [friends, setFriends] = React.useState(getData())
+
+  const toggleFavorite = React.useCallback(
+    (friendId: number) => () => {
+      setFriends(data =>
+        data.map(f =>
+          f.id === friendId ? { ...f, following: !f.following } : f
+        )
+      )
+    },
+    []
+  )
+
+  React.useEffect(() => {
+    window.localStorage.setItem("__square_friends", JSON.stringify(friends))
+  }, [friends])
+
+  return {
+    friends,
+    toggleFavorite,
+  }
 }
 
 export { useGetFriends }
