@@ -10,7 +10,11 @@ type Props = Omit<
   directory?: string
 }
 
-const Image: React.FC<Props> = ({ name: iconName, directory = "", ...rest }) => {
+const Image: React.FC<Props> = ({
+  name: iconName,
+  directory = "",
+  ...rest
+}) => {
   const files = useSiteFiles()
 
   const icon = files.filter(
@@ -18,7 +22,7 @@ const Image: React.FC<Props> = ({ name: iconName, directory = "", ...rest }) => 
       name === iconName && relativeDirectory === directory
   )[0]
 
-  return <img src={icon.publicURL} alt={icon.name} {...rest} />
+  return icon ? <img src={icon.publicURL} alt={icon.name} {...rest} /> : null
 }
 
 export { Image as default }
