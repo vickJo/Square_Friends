@@ -87,10 +87,7 @@ const Index: React.FC<PageProps> = props => {
               avatar={<Icon name={`${id}`} directory={"avatars"} />}
               bannerName={`${id}`}
               action={
-                <div
-                  className={`card-action ${following ? "active" : ""}`}
-                  onClick={toggleFavorite(id)}
-                >
+                <div className="card-action" onClick={toggleFavorite(id)}>
                   {following ? "Following" : "Follow"}
                 </div>
               }

@@ -300,7 +300,7 @@ body {
   cursor: pointer;
 }
 
-.card > .action > .card-action.active {
+.card > .action > .card-action:hover {
   background: #0062ff;
   color: #fafafb;
 }
