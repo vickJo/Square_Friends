@@ -13,46 +13,40 @@ type FriendPayload = {
 }
 
 function useGetFriends() {
-  const getData = (): FriendPayload[] => {
-    const data = Data.map(friend => ({ ...friend, following: false }))
-    
-    if (!window) {
-      return data;
+  const [friends, setFriends] = React.useState<FriendPayload[]>(() => {
+    if (typeof window === "undefined") {
+      return Data
     }
 
-    const cachedData = window.localStorage.getItem(STORAGE_KEY)
+    const cache = window.localStorage.getItem(STORAGE_KEY)
 
-    if (cachedData) {
-      return JSON.parse(cachedData)
+    if (cache) {
+      return JSON.parse(cache)
     }
 
+    const data = Data.map(user => ({ ...user, following: false }))
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
     return data
-  }
-
-  const [friends, setFriends] = React.useState(getData())
+  })
 
   const toggleFavorite = React.useCallback(
-    (friendId: number) => (e: React.MouseEvent<HTMLDivElement>) => {
-      e.stopPropagation()
+    (id: number) => (ev: React.MouseEvent<HTMLDivElement>) => {
+      ev.stopPropagation()
 
       setFriends(data =>
-        data.map(f =>
-          f.id === friendId ? { ...f, following: !f.following } : f
-        )
+        data.map(f => (f.id === id ? { ...f, following: !f.following } : f))
       )
     },
     []
   )
 
   React.useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(friends))
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(friends))
+    }
   }, [friends])
 
-  return {
-    friends,
-    toggleFavorite,
-  }
+  return { friends, toggleFavorite }
 }
 
 export { useGetFriends }
