@@ -147,6 +147,41 @@ body {
   width: 200px;
 }
 
+.page-title > .extra > .landing-extra > .sort-items > .dropdown {
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  width: 98%;
+  margin-top: 7px;
+  opacity: 0;
+  transition: all ease-in-out 0.3s;
+  box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.page-title > .extra > .landing-extra > .sort-items > .dropdown.open {
+  opacity: 1;
+}
+
+.page-title > .extra > .landing-extra > .sort-items > .dropdown > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.page-title > .extra > .landing-extra > .sort-items > .dropdown > ul > li {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.page-title
+  > .extra
+  > .landing-extra
+  > .sort-items
+  > .dropdown
+  > ul
+  > li:hover {
+  background: #e1f1fe;
+}
+
 .page-title > .extra > .landing-extra > .sort-items > .view {
   width: calc(85% - 10px);
   height: calc(100% - 3px);
