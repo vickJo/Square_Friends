@@ -1,6 +1,8 @@
 import React from "react"
 import Data from "../data/friendsList.json"
 
+const STORAGE_KEY = "__square_friends"
+
 type FriendPayload = {
   id: number
   name: string
@@ -12,14 +14,19 @@ type FriendPayload = {
 
 function useGetFriends() {
   const getData = (): FriendPayload[] => {
-    const cachedData = localStorage.getItem("__square_friends")
+    const data = Data.map(friend => ({ ...friend, following: false }))
+    
+    if (!window) {
+      return data;
+    }
+
+    const cachedData = window.localStorage.getItem(STORAGE_KEY)
 
     if (cachedData) {
       return JSON.parse(cachedData)
     }
 
-    const data = Data.map(friend => ({ ...friend, following: false }))
-    localStorage.setItem("__square_friends", JSON.stringify(data))
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
     return data
   }
 
@@ -39,7 +46,7 @@ function useGetFriends() {
   )
 
   React.useEffect(() => {
-    localStorage.setItem("__square_friends", JSON.stringify(friends))
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(friends))
   }, [friends])
 
   return {
