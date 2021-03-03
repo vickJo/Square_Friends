@@ -12,7 +12,7 @@ const Index: React.FC<PageProps> = props => {
 
   const handleViewFriendDetails = React.useCallback(
     (id: number) => () => {
-      navigate(`/friend-details/`)
+      navigate(`/friend-details/${id}`)
     },
     []
   )
@@ -49,7 +49,7 @@ const Index: React.FC<PageProps> = props => {
               title={name}
               subtitle={social}
               description={bio}
-              avatar={<Icon name={`${id}`} directory={"profiles"} />}
+              avatar={<Icon name={`${id}`} directory={"avatars"} />}
               bannerName={`${id}`}
               action={
                 <div

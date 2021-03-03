@@ -270,6 +270,54 @@ body {
   color: #fafafb;
 }
 
+.friend-details {
+  text-align: center;
+}
+
+.friend-details > .go-back {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.friend-details > .go-back > a {
+  text-decoration: none;
+}
+
+.friend-details > .go-back > a:hover {
+  text-decoration: underline;
+}
+
+.friend-details > .divider {
+  margin: 0 auto;
+  width: 200px;
+  border: 1px solid #eee;
+}
+
+.friend-details > .images {
+  position: relative;
+}
+
+.friend-details > .images > .cover {
+  width: 100%;
+  height: 200px;
+}
+
+.friend-details > .images > .avatar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+}
+
+.friend-details > .profile {
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+.friend-details > .bio {
+  margin-top: 30px;
+}
+
 @media (max-width: 567px) {
   .no-xs {
     display: none !important;
