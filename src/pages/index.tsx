@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate, PageProps } from "gatsby"
+import { Link, PageProps } from "gatsby"
 
 import SEO from "../components/seo"
 import Image from "../components/image"
@@ -14,13 +14,6 @@ const Index: React.FC<PageProps> = props => {
   const [order, setOrder] = React.useState<orderType>("Newest")
 
   const { friends, toggleFavorite } = useGetFriends()
-
-  const handleViewFriendDetails = React.useCallback(
-    (id: number) => () => {
-      navigate(`/friend-details/${id}`)
-    },
-    []
-  )
 
   const sortFriendsList = React.useCallback(
     (order: orderType) => () => {
@@ -79,23 +72,23 @@ const Index: React.FC<PageProps> = props => {
           const { id, name, social, bio, following } = friend
 
           return (
-            <UserCard
-              key={id}
-              title={name}
-              subtitle={social}
-              description={bio}
-              avatar={<Image name={`${id}`} directory={"avatars"} />}
-              bannerName={`${id}`}
-              action={
-                <div className="card-action" onClick={toggleFavorite(id)}>
-                  {following ? (
-                    <Image name="dot" directory="icons" className="dot" />
-                  ) : null}
-                  {following ? "Following" : "Follow"}
-                </div>
-              }
-              onClick={handleViewFriendDetails(id)}
-            />
+            <Link className="card" key={id} to={`/friend-details/${id}`}>
+              <UserCard
+                title={name}
+                subtitle={social}
+                description={bio}
+                avatar={<Image name={`${id}`} directory={"avatars"} />}
+                bannerName={`${id}`}
+                action={
+                  <div className="card-action" onClick={toggleFavorite(id)}>
+                    {following ? (
+                      <Image name="dot" directory="icons" className="dot" />
+                    ) : null}
+                    {following ? "Following" : "Follow"}
+                  </div>
+                }
+              />
+            </Link>
           )
         })}
       </div>
