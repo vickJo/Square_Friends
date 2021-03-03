@@ -1,6 +1,5 @@
 import React from "react"
-import BaseLayout from "./base"
-import MainLayout from "./main"
+import Header from "../components/header"
 
 type Props = {
   pageContext: {
@@ -10,17 +9,22 @@ type Props = {
   [x: string]: any
 }
 
+type Theme = "dark" | "light"
+
 const Layout: React.FC<Props> = props => {
   const {
     pageContext: { layout },
+    children,
   } = props
 
-  switch (layout) {
-    case "base":
-      return <BaseLayout {...(props as any)} />
-    default:
-      return <MainLayout {...(props as any)} />
-  }
+  const [theme, setTheme] = React.useState<Theme>("light")
+
+  return (
+    <div className={`wrapper ${theme}`}>
+      <Header layout={layout} />
+      <div className="container">{children}</div>
+    </div>
+  )
 }
 
 export { Layout as default }
