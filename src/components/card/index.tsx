@@ -35,7 +35,7 @@ const Card: React.FC<Props> = ({
           top: 0,
           bottom: "59.35%",
           borderRadius: "15px 15px 0px 0px",
-          background: `url(${cover.publicURL}) #ccc`,
+          background: `url(${cover?.publicURL}) #ccc`,
           backgroundSize: "cover",
         }}
       />
