@@ -9,6 +9,21 @@ body {
   margin: 0;
 }
 
+.theme-palette {
+  position: fixed;
+  background: #fff;
+  padding: 10px;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0%;
+  text-align: center;
+  box-shadow: -10px 5px 8px 1px rgba(0, 0, 0, 0.2);
+  width: 50px;
+  z-index: 9999;
+  font-weight: bold;
+}
+
 .wrapper {
   position: absolute;
   width: 100%;
@@ -479,4 +494,65 @@ body {
   .card {
     width: calc(50% - 30px);
   }
+}
+
+.wrapper.dark {
+  background: #171725;
+  color: #fff;
+}
+
+.wrapper.dark > .theme-palette {
+  background: #171725;
+}
+
+.wrapper.dark .card {
+  background: #1c1c24;
+  color: #fff;
+}
+
+.wrapper.dark .card > .profile > h2 {
+  color: #fff;
+}
+
+.wrapper.dark .page-title > .extra > .landing-extra > .sort-items {
+  background: #1c1c24;
+}
+
+.wrapper.dark .page-title > .extra > .landing-extra > .sort-items > .view {
+  color: #fff;
+}
+
+.wrapper.dark .page-title > .extra > .landing-extra > img {
+  background: #1c1c24;
+}
+
+.wrapper.dark .page-title > .extra > .landing-extra > .sort-items > .dropdown {
+  background: #44444f;
+}
+
+.wrapper.dark
+  .page-title
+  > .extra
+  > .landing-extra
+  > .sort-items
+  > .dropdown
+  > ul
+  > li:hover {
+  color: #222;
+}
+
+.wrapper.dark .header {
+  background: #1c1c24;
+}
+
+.wrapper.dark .header > .search > .field {
+  background: #44444f;
+}
+
+.wrapper.dark .header > .search > .field > input {
+  color: #fff;
+}
+
+.wrapper.dark .go-back > a {
+  color: #fff;
 }

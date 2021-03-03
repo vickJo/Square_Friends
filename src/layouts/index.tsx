@@ -9,7 +9,7 @@ type Props = {
   [x: string]: any
 }
 
-type Theme = "dark" | "light"
+export type Theme = "dark" | "light"
 
 const Layout: React.FC<Props> = props => {
   const {
@@ -21,7 +21,13 @@ const Layout: React.FC<Props> = props => {
 
   return (
     <div className={`wrapper ${theme}`}>
-      <Header layout={layout} />
+      <Header layout={layout} theme={theme} />
+      <div
+        className="theme-palette"
+        onClick={() => setTheme(t => (t === "dark" ? "light" : "dark"))}
+      >
+        {theme === "light" ? "Light" : "Dark"} Theme
+      </div>
       <div className="container">{children}</div>
     </div>
   )
