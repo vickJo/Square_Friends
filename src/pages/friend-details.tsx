@@ -25,28 +25,32 @@ const FriendDetails: React.FC<PageProps> = ({ params }) => {
         <Link to="/">Back to Friends</Link>
       </div>
 
-      <div className="images">
-        <div
-          className="cover"
-          style={{
-            background: `url(${cover.publicURL}) #ccc`,
-            backgroundSize: "cover",
-          }}
-        />
-        <Image className="avatar" name={friendId} directory={`avatars`} />
-      </div>
+      {!friend ? null : (
+        <>
+          <div className="images">
+            <div
+              className="cover"
+              style={{
+                background: `url(${cover?.publicURL}) #ccc`,
+                backgroundSize: "cover",
+              }}
+            />
+            <Image className="avatar" name={friendId} directory={`avatars`} />
+          </div>
 
-      <div className="profile">
-        <h2>{friend.name}</h2>
-        <p>{friend.social}</p>
-      </div>
+          <div className="profile">
+            <h2>{friend.name}</h2>
+            <p>{friend.social}</p>
+          </div>
 
-      <div className="divider" />
+          <div className="divider" />
 
-      <div className="bio">
-        <h2>Bio</h2>
-        <p>{friend.bio}</p>
-      </div>
+          <div className="bio">
+            <h2>Bio</h2>
+            <p>{friend.bio}</p>
+          </div>
+        </>
+      )}
     </div>
   )
 }
