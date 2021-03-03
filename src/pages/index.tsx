@@ -1,5 +1,5 @@
 import React from "react"
-import { PageProps } from "gatsby"
+import { navigate, PageProps } from "gatsby"
 
 import SEO from "../components/seo"
 import Icon from "../components/icon"
@@ -9,6 +9,13 @@ import { useGetFriends } from "../hooks/use-get-friends"
 
 const Index: React.FC<PageProps> = props => {
   const { friends, toggleFavorite } = useGetFriends()
+
+  const handleViewFriendDetails = React.useCallback(
+    (id: number) => () => {
+      navigate(`/friend-details/`)
+    },
+    []
+  )
 
   const friendsList = friends
 
@@ -52,6 +59,7 @@ const Index: React.FC<PageProps> = props => {
                   {following ? "Following" : "Follow"}
                 </div>
               }
+              onClick={handleViewFriendDetails(id)}
             />
           )
         })}

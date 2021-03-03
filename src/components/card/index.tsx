@@ -2,7 +2,7 @@ import React from "react"
 
 import { useSiteFiles } from "../../hooks/use-site-files"
 
-type Props = {
+type Props = React.HTMLAttributes<HTMLDivElement> & {
   bannerName: string
   title: string
   subtitle: string
@@ -17,6 +17,7 @@ const Card: React.FC<Props> = ({
   description,
   avatar,
   action,
+  ...rest
 }) => {
   const files = useSiteFiles()
 
@@ -25,7 +26,7 @@ const Card: React.FC<Props> = ({
   )[0]
 
   return (
-    <div className="card">
+    <div className="card" {...rest}>
       <div
         style={{
           position: "absolute",

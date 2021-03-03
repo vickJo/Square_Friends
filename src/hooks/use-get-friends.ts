@@ -26,7 +26,9 @@ function useGetFriends() {
   const [friends, setFriends] = React.useState(getData())
 
   const toggleFavorite = React.useCallback(
-    (friendId: number) => () => {
+    (friendId: number) => (e: React.MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation()
+
       setFriends(data =>
         data.map(f =>
           f.id === friendId ? { ...f, following: !f.following } : f
