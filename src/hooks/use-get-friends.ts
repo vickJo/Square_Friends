@@ -12,14 +12,14 @@ type FriendPayload = {
 
 function useGetFriends() {
   const getData = (): FriendPayload[] => {
-    const cachedData = window.localStorage.getItem("__square_friends")
+    const cachedData = localStorage.getItem("__square_friends")
 
     if (cachedData) {
       return JSON.parse(cachedData)
     }
 
     const data = Data.map(friend => ({ ...friend, following: false }))
-    window.localStorage.setItem("__square_friends", JSON.stringify(data))
+    localStorage.setItem("__square_friends", JSON.stringify(data))
     return data
   }
 
@@ -39,7 +39,7 @@ function useGetFriends() {
   )
 
   React.useEffect(() => {
-    window.localStorage.setItem("__square_friends", JSON.stringify(friends))
+    localStorage.setItem("__square_friends", JSON.stringify(friends))
   }, [friends])
 
   return {
