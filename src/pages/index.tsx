@@ -43,10 +43,6 @@ const Index: React.FC<PageProps> = props => {
         {friendsList.map(friend => {
           const { id, name, social, bio, following } = friend
 
-          const actionClassName = following
-            ? "card-action active"
-            : "card-action"
-
           return (
             <UserCard
               key={id}
@@ -57,7 +53,7 @@ const Index: React.FC<PageProps> = props => {
               bannerName={`${id}`}
               action={
                 <div
-                  className={actionClassName}
+                  className={`card-action ${following ? "active" : ""}`}
                   onClick={toggleFavorite(id)}
                 >
                   {following ? "Following" : "Follow"}
