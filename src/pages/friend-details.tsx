@@ -41,6 +41,7 @@ const FriendDetails: React.FC<PageProps> = ({ params }) => {
           <div className="profile">
             <h2>{friend.name}</h2>
             <p>{friend.social}</p>
+            <span>Connected on: {new Date(friend.date).toUTCString()}</span>
           </div>
 
           <div className="divider" />
