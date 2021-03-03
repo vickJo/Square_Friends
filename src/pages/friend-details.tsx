@@ -2,7 +2,7 @@ import React from "react"
 import { Link, PageProps } from "gatsby"
 
 import SEO from "../components/seo"
-import Image from "../components/icon"
+import Image from "../components/image"
 import { useSiteFiles } from "../hooks/use-site-files"
 import { useGetFriends } from "../hooks/use-get-friends"
 

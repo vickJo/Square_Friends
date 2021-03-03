@@ -2,7 +2,7 @@ import React from "react"
 import { navigate, PageProps } from "gatsby"
 
 import SEO from "../components/seo"
-import Icon from "../components/icon"
+import Image from "../components/image"
 import PageTitle from "../components/page-title"
 import UserCard from "../components/card"
 import { useGetFriends } from "../hooks/use-get-friends"
@@ -52,7 +52,7 @@ const Index: React.FC<PageProps> = props => {
         title="Friends List"
         extra={
           <div className="landing-extra">
-            <Icon name="search" directory="icons" />
+            <Image name="search" directory="icons" />
             <div
               className="sort-items"
               onClick={() => setOpenDropdown(o => !o)}
@@ -61,7 +61,7 @@ const Index: React.FC<PageProps> = props => {
                 Sort by: <b>{order} First</b>
               </div>
               <div className="divider" />
-              <Icon name="dropdown" directory="icons" />
+              <Image name="dropdown" directory="icons" />
               <div className={`dropdown ${openDropdown ? " open" : ""}`}>
                 <ul>
                   <li onClick={sortFriendsList("Newest")}>Newest First</li>
@@ -69,7 +69,7 @@ const Index: React.FC<PageProps> = props => {
                 </ul>
               </div>
             </div>
-            <Icon name="filter" directory="icons" />
+            <Image name="filter" directory="icons" />
           </div>
         }
       />
@@ -84,7 +84,7 @@ const Index: React.FC<PageProps> = props => {
               title={name}
               subtitle={social}
               description={bio}
-              avatar={<Icon name={`${id}`} directory={"avatars"} />}
+              avatar={<Image name={`${id}`} directory={"avatars"} />}
               bannerName={`${id}`}
               action={
                 <div className="card-action" onClick={toggleFavorite(id)}>

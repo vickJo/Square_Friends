@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Image from "../icon"
+import Image from "../image"
 import { Theme } from "../../layouts"
 
 type Props = {

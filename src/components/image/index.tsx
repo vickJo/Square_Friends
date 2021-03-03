@@ -10,7 +10,7 @@ type Props = Omit<
   directory?: string
 }
 
-const Icon: React.FC<Props> = ({ name: iconName, directory = "", ...rest }) => {
+const Image: React.FC<Props> = ({ name: iconName, directory = "", ...rest }) => {
   const files = useSiteFiles()
 
   const icon = files.filter(
@@ -21,4 +21,4 @@ const Icon: React.FC<Props> = ({ name: iconName, directory = "", ...rest }) => {
   return <img src={icon.publicURL} alt={icon.name} {...rest} />
 }
 
-export { Icon as default }
+export { Image as default }
