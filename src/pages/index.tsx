@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, PageProps } from "gatsby"
+import { PageProps } from "gatsby"
 
 import SEO from "../components/seo"
 import Image from "../components/image"
@@ -9,11 +9,11 @@ import { useGetFriends } from "../hooks/use-get-friends"
 
 type orderType = "Newest" | "Oldest"
 
-const Index: React.FC<PageProps> = props => {
+const Index: React.FC<PageProps> = () => {
   const [openDropdown, setOpenDropdown] = React.useState<boolean>(false)
   const [order, setOrder] = React.useState<orderType>("Newest")
 
-  const { friends, toggleFavorite } = useGetFriends()
+  const { friends, toggleFavorite, viewFriendDetails } = useGetFriends()
 
   const sortFriendsList = React.useCallback(
     (order: orderType) => () => {
@@ -72,23 +72,23 @@ const Index: React.FC<PageProps> = props => {
           const { id, name, social, bio, following } = friend
 
           return (
-            <Link className="card" key={id} to={`/friend-details/${id}`}>
-              <UserCard
-                title={name}
-                subtitle={social}
-                description={bio}
-                avatar={<Image name={`${id}`} directory={"avatars"} />}
-                bannerName={`${id}`}
-                action={
-                  <div className="card-action" onClick={toggleFavorite(id)}>
-                    {following ? (
-                      <Image name="dot" directory="icons" className="dot" />
-                    ) : null}
-                    {following ? "Following" : "Follow"}
-                  </div>
-                }
-              />
-            </Link>
+            <UserCard
+              key={id}
+              title={name}
+              subtitle={social}
+              description={bio}
+              avatar={<Image name={`${id}`} directory={"avatars"} />}
+              bannerName={`${id}`}
+              action={
+                <div className="card-action" onClick={toggleFavorite(id)}>
+                  {following ? (
+                    <Image name="dot" directory="icons" className="dot" />
+                  ) : null}
+                  {following ? "Following" : "Follow"}
+                </div>
+              }
+              onClick={viewFriendDetails(friend)}
+            />
           )
         })}
       </div>

@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "dependencies": {
     "gatsby": "^3.0.1",
-    "gatsby-plugin-create-client-paths": "^3.0.0",
     "gatsby-plugin-gatsby-cloud": "^2.0.0",
     "gatsby-plugin-layout": "^1.10.0",
     "gatsby-plugin-manifest": "^3.0.0",

@@ -1,9 +1,12 @@
 import React from "react"
+import { navigate } from "gatsby"
+
+import { AppContext, cacheActiveFriend } from "./../util/context"
 import Data from "../data/friendsList.json"
 
 const STORAGE_KEY = "__square_friends"
 
-type FriendPayload = {
+export interface IFriendPayload {
   id: number
   name: string
   social: string
@@ -13,7 +16,8 @@ type FriendPayload = {
 }
 
 function useGetFriends() {
-  const [friends, setFriends] = React.useState<FriendPayload[]>(() => {
+  const { setActiveFriend } = React.useContext(AppContext)
+  const [friends, setFriends] = React.useState<IFriendPayload[]>(() => {
     if (typeof window === "undefined") {
       return Data
     }
@@ -40,13 +44,22 @@ function useGetFriends() {
     []
   )
 
+  const viewFriendDetails = React.useCallback(
+    (friend: IFriendPayload) => () => {
+      setActiveFriend(friend)
+      cacheActiveFriend(friend)
+      navigate("/friend-details")
+    },
+    []
+  )
+
   React.useEffect(() => {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(friends))
     }
   }, [friends])
 
-  return { friends, toggleFavorite }
+  return { friends, toggleFavorite, viewFriendDetails }
 }
 
 export { useGetFriends }

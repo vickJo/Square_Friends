@@ -4,17 +4,25 @@ import { Link, PageProps } from "gatsby"
 import SEO from "../components/seo"
 import Image from "../components/image"
 import { useSiteFiles } from "../hooks/use-site-files"
-import { useGetFriends } from "../hooks/use-get-friends"
+import { AppContext, clearActiveFriend } from "../util/context"
 
-const FriendDetails: React.FC<PageProps> = ({ params }) => {
-  const friendId = params["*"]
-
-  const { friends } = useGetFriends()
-  const friend = friends.filter(({ id }) => id === +friendId)[0]
-
+const FriendDetails: React.FC<PageProps> = () => {
   const files = useSiteFiles()
+  const { activeFriend: friend, setActiveFriend } = React.useContext(AppContext)
+
+  React.useEffect(() => {
+    return () => {
+      clearActiveFriend()
+      setActiveFriend(null)
+    }
+  }, [])
+
+  if (!friend) {
+    return null
+  }
+
   const cover = files.filter(
-    file => file.name === friendId && file.relativeDirectory === "covers"
+    file => +file.name === friend.id && file.relativeDirectory === "covers"
   )[0]
 
   return (
@@ -35,7 +43,11 @@ const FriendDetails: React.FC<PageProps> = ({ params }) => {
                 backgroundSize: "cover",
               }}
             />
-            <Image className="avatar" name={friendId} directory={`avatars`} />
+            <Image
+              className="avatar"
+              name={`${friend.id}`}
+              directory={`avatars`}
+            />
           </div>
 
           <div className="profile">
