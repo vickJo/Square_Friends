@@ -53,8 +53,8 @@ const Index: React.FC<PageProps> = props => {
               <div className="view">
                 Sort by: <b>{order} First</b>
               </div>
-              <div className="divider" />
-              <Image name="dropdown" directory="icons" />
+              <div className="vertical-line" />
+              <Image className="icd" name="dropdown" directory="icons" />
               <div className={`dropdown ${openDropdown ? " open" : ""}`}>
                 <ul>
                   <li onClick={sortFriendsList("Newest")}>Newest First</li>
