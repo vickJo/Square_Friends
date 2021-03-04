@@ -57,7 +57,9 @@ const FriendDetails: React.FC<PageProps> = () => {
           <div className="profile">
             <h2>{friend.name}</h2>
             <p>{friend.social}</p>
-            <span>Connected on: {new Date(friend.date).toUTCString()}</span>
+            <span>
+              {dictionary.connectedOn}: {new Date(friend.date).toUTCString()}
+            </span>
           </div>
 
           <div className="divider" />
