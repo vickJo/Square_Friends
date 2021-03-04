@@ -144,7 +144,7 @@ body {
 
 .page-title > .extra > .landing-extra > * {
   cursor: pointer;
-  background: #ffffff;
+  background: #fff;
   border-radius: 10px;
   padding: 4px;
 }
@@ -388,7 +388,7 @@ body {
 
 @media (max-width: 567px) {
   .no-xs {
-    display: none !important;
+    display: none;
   }
 
   .page-title {
