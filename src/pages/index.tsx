@@ -80,7 +80,11 @@ const Index: React.FC<PageProps> = () => {
               avatar={<Image name={`${id}`} directory={"avatars"} />}
               bannerName={`${id}`}
               action={
-                <div className="card-action" onClick={toggleFavorite(id)}>
+                <div
+                  className="card-action"
+                  onClick={toggleFavorite(id)}
+                  role="button"
+                >
                   {following ? (
                     <Image name="dot" directory="icons" className="dot" />
                   ) : null}
