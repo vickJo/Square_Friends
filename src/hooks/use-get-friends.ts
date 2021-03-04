@@ -1,8 +1,9 @@
 import React from "react"
 import { navigate } from "gatsby"
 
-import { AppContext, cacheActiveFriend } from "./../util/context"
+import { cacheActiveFriend, FriendContext } from "../util/contexts"
 import Data from "../data/friendsList.json"
+import storage from "../util/storage"
 
 const STORAGE_KEY = "__square_friends"
 
@@ -16,20 +17,17 @@ export interface IFriendPayload {
 }
 
 function useGetFriends() {
-  const { setActiveFriend } = React.useContext(AppContext)
+  const { setActiveFriend } = React.useContext(FriendContext)
+
   const [friends, setFriends] = React.useState<IFriendPayload[]>(() => {
-    if (typeof window === "undefined") {
-      return Data
-    }
+    const cachedData = storage.get(STORAGE_KEY)
 
-    const cache = window.localStorage.getItem(STORAGE_KEY)
-
-    if (cache) {
-      return JSON.parse(cache)
+    if (cachedData) {
+      return cachedData
     }
 
     const data = Data.map(user => ({ ...user, following: false }))
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    storage.set(STORAGE_KEY, data)
     return data
   })
 
@@ -54,9 +52,7 @@ function useGetFriends() {
   )
 
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(friends))
-    }
+    storage.set(STORAGE_KEY, friends)
   }, [friends])
 
   return { friends, toggleFavorite, viewFriendDetails }

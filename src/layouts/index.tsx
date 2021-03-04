@@ -1,7 +1,8 @@
 import React from "react"
+
 import Header from "../components/header"
 import { IFriendPayload } from "../hooks/use-get-friends"
-import { AppContext, initActiveFriend } from "../util/context"
+import { FriendContext, initActiveFriend } from "../util/contexts"
 
 type Props = {
   pageContext: {
@@ -26,7 +27,7 @@ const Layout: React.FC<Props> = props => {
   const ctxVal = { activeFriend: friend, setActiveFriend: setFriend }
 
   return (
-    <AppContext.Provider value={ctxVal}>
+    <FriendContext.Provider value={ctxVal}>
       <div className={`wrapper ${theme}`}>
         <Header layout={layout} theme={theme} />
         <div
@@ -37,7 +38,7 @@ const Layout: React.FC<Props> = props => {
         </div>
         <div className="container">{children}</div>
       </div>
-    </AppContext.Provider>
+    </FriendContext.Provider>
   )
 }
 

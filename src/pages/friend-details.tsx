@@ -4,11 +4,13 @@ import { Link, PageProps } from "gatsby"
 import SEO from "../components/seo"
 import Image from "../components/image"
 import { useSiteFiles } from "../hooks/use-site-files"
-import { AppContext, clearActiveFriend } from "../util/context"
+import { clearActiveFriend, FriendContext } from "../util/contexts"
 
 const FriendDetails: React.FC<PageProps> = () => {
   const files = useSiteFiles()
-  const { activeFriend: friend, setActiveFriend } = React.useContext(AppContext)
+  const { activeFriend: friend, setActiveFriend } = React.useContext(
+    FriendContext
+  )
 
   React.useEffect(() => {
     return () => {
