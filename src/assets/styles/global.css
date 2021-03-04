@@ -109,6 +109,27 @@ body {
   margin: 0 10px;
 }
 
+.header > .actions > .lang-switcher {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.header > .actions > .lang-switcher > span {
+  cursor: pointer;
+  padding: 3px;
+  display: block;
+}
+
+.header > .actions > .lang-switcher > span:hover {
+  background: #44444f;
+  color: #f1f1f5;
+}
+
+.header > .actions > .lang-switcher > span.on {
+  background: #171725;
+  color: #f1f1f5;
+}
+
 .not-found {
   display: flex;
   align-items: center;
@@ -550,4 +571,14 @@ body {
 
 .wrapper.dark .go-back > a {
   color: #fff;
+}
+
+.wrapper.dark .header > .actions > .lang-switcher > span:hover {
+  background: #92929d;
+  color: #44444f;
+}
+
+.wrapper.dark .header > .actions > .lang-switcher > span.on {
+  background: #f1f1f5;
+  color: #171725;
 }

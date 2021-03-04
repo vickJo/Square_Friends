@@ -5,8 +5,10 @@ import SEO from "../components/seo"
 import Image from "../components/image"
 import { useSiteFiles } from "../hooks/use-site-files"
 import { clearActiveFriend, FriendContext } from "../util/contexts"
+import { useSiteLanguage } from "../hooks/use-site-language"
 
 const FriendDetails: React.FC<PageProps> = () => {
+  const { dictionary } = useSiteLanguage()
   const files = useSiteFiles()
   const { activeFriend: friend, setActiveFriend } = React.useContext(
     FriendContext
@@ -32,7 +34,7 @@ const FriendDetails: React.FC<PageProps> = () => {
       <SEO title="Friend Details" />
 
       <div className="go-back">
-        <Link to="/">Back to Friends</Link>
+        <Link to="/">{dictionary.homeBackLink}</Link>
       </div>
 
       {!friend ? null : (
@@ -61,7 +63,7 @@ const FriendDetails: React.FC<PageProps> = () => {
           <div className="divider" />
 
           <div className="bio">
-            <h2>Bio</h2>
+            <h2>{dictionary.bio}</h2>
             <p>{friend.bio}</p>
           </div>
         </>

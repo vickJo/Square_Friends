@@ -3,19 +3,27 @@ import React from "react"
 import storage from "./storage"
 import { IFriendPayload } from "../hooks/use-get-friends"
 
-const STORAGE_KEY = "__square_friend"
-
-export const initActiveFriend = () => storage.get(STORAGE_KEY)
+export const initActiveFriend = storage.get("__square_friend")
 
 export const cacheActiveFriend = (friend: IFriendPayload) =>
-  storage.set(STORAGE_KEY, friend)
+  storage.set("__square_friend", friend)
 
-export const clearActiveFriend = () => storage.delete(STORAGE_KEY)
+export const clearActiveFriend = () => storage.delete("__square_friend")
+
+export const initActiveLanguage = storage.get("__square_lang") || "en"
 
 export const FriendContext = React.createContext<{
   activeFriend: null | IFriendPayload
   setActiveFriend: (f: null | IFriendPayload) => void
 }>({
-  activeFriend: initActiveFriend(),
+  activeFriend: null,
   setActiveFriend: (f: null | IFriendPayload) => {},
+})
+
+export const LanguageContext = React.createContext<{
+  language: "en" | "fr"
+  setLanguage: (l: "en" | "fr") => void
+}>({
+  language: "en",
+  setLanguage: (l: "en" | "fr") => {},
 })

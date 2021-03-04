@@ -6,6 +6,7 @@ import Image from "../components/image"
 import PageTitle from "../components/page-title"
 import UserCard from "../components/card"
 import { useGetFriends } from "../hooks/use-get-friends"
+import { useSiteLanguage } from "../hooks/use-site-language"
 
 type orderType = "Newest" | "Oldest"
 
@@ -13,6 +14,7 @@ const Index: React.FC<PageProps> = () => {
   const [openDropdown, setOpenDropdown] = React.useState<boolean>(false)
   const [order, setOrder] = React.useState<orderType>("Newest")
 
+  const { dictionary } = useSiteLanguage()
   const { friends, toggleFavorite, viewFriendDetails } = useGetFriends()
 
   const sortFriendsList = React.useCallback(
@@ -40,9 +42,9 @@ const Index: React.FC<PageProps> = () => {
 
   return (
     <>
-      <SEO title="Friends List" />
+      <SEO title={dictionary.indexSeo} />
       <PageTitle
-        title="Friends List"
+        title={dictionary.homeTitle}
         extra={
           <div className="landing-extra">
             <Image name="search" directory="icons" />
@@ -51,14 +53,23 @@ const Index: React.FC<PageProps> = () => {
               onClick={() => setOpenDropdown(o => !o)}
             >
               <div className="view">
-                Sort by: <b>{order} First</b>
+                {dictionary.sortBy}:{" "}
+                <b>
+                  {order === "Newest"
+                    ? dictionary.newestSort
+                    : dictionary.oldestSort}
+                </b>
               </div>
               <div className="vertical-line" />
               <Image className="icd" name="dropdown" directory="icons" />
               <div className={`dropdown ${openDropdown ? " open" : ""}`}>
                 <ul>
-                  <li onClick={sortFriendsList("Newest")}>Newest First</li>
-                  <li onClick={sortFriendsList("Oldest")}>Oldest First</li>
+                  <li onClick={sortFriendsList("Newest")}>
+                    {dictionary.newestSort}
+                  </li>
+                  <li onClick={sortFriendsList("Oldest")}>
+                    {dictionary.oldestSort}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -88,7 +99,7 @@ const Index: React.FC<PageProps> = () => {
                   {following ? (
                     <Image name="dot" directory="icons" className="dot" />
                   ) : null}
-                  {following ? "Following" : "Follow"}
+                  {following ? dictionary.following : dictionary.follow}
                 </div>
               }
               onClick={viewFriendDetails(friend)}

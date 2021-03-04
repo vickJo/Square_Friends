@@ -2,14 +2,17 @@ import React from "react"
 import { Link } from "gatsby"
 
 import SEO from "../components/seo"
+import { useSiteLanguage } from "../hooks/use-site-language"
 
 const NotFound: React.FC<{}> = () => {
+  const { dictionary } = useSiteLanguage()
+
   return (
     <div className="not-found">
-      <SEO title="Not Found" />
+      <SEO title={dictionary.notFoundSeo} />
       <h1>404</h1>
       <p>
-        We've got nothing here. <Link to="/">Go home</Link>
+        {dictionary.nothingHere}. <Link to="/">{dictionary.goHome}</Link>
       </p>
     </div>
   )

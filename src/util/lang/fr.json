@@ -1,0 +1,16 @@
+{
+  "homeTitle": "Liste d'amis",
+  "homeBackLink": "Retour aux amis",
+  "bio": "Bio",
+  "sortBy": "Trier par",
+  "newestSort": "Le plus récent",
+  "oldestSort": "Le plus ancien",
+  "follow": "Suivre",
+  "following": "Suivant",
+  "notFoundSeo": "Pas trouvé",
+  "friendDetailsSeo": "Détails de l'ami",
+  "indexSeo": "Liste d'amis",
+  "nothingHere": "Nous n'avons rien ici",
+  "goHome": "Aller Maison",
+  "search": "Chercher"
+}

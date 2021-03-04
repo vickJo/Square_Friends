@@ -2,7 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Image from "../image"
+import LanguageSwitcher from "./language-switcher"
 import { Theme } from "../../layouts"
+import { useSiteLanguage } from "../../hooks/use-site-language"
 
 type Props = {
   layout?: "base"
@@ -10,6 +12,8 @@ type Props = {
 }
 
 const Header: React.FC<Props> = ({ layout, theme }) => {
+  const { dictionary } = useSiteLanguage()
+
   return (
     <div className="header">
       <div className="logo">
@@ -21,7 +25,7 @@ const Header: React.FC<Props> = ({ layout, theme }) => {
         <>
           <div className="search">
             <div className="field">
-              <input type="text" placeholder="Search" />
+              <input type="text" placeholder={dictionary.search} />
               <div className="icon">
                 <Image name="search" directory="icons" />
               </div>
@@ -39,6 +43,7 @@ const Header: React.FC<Props> = ({ layout, theme }) => {
                 className={name === "avatar" ? "" : "no-xs"}
               />
             ))}
+            <LanguageSwitcher />
           </div>
         </>
       )}
