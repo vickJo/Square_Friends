@@ -13,7 +13,8 @@ Run `npm install` to pull the application dependencies then `npm run start` or `
 - Quick sort of friends by date connected
 - Language switch functionality in English and French (French translations were obtained from Google and can be found in utils directory)
 - Mobile Responsiveness
+- Codacy integrated into the application's repository
 
 # Live Url
 
-This application is hosted on Netlify. [https://squarefriends.netlify.app/]Go to application
+This application is hosted on Netlify at [https://squarefriends.netlify.app/]
