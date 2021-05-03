@@ -8,8 +8,7 @@ type Props = {
   description?: string
 }
 
-const SEO: React.FC<Props> = props => {
-  const { title, description } = props
+const SEO: React.FC<Props> = ({ title, description }) => {
   const { title: siteTitle, description: siteDesc } = useSiteMetadata()
   const metaDescription = description || siteDesc
 

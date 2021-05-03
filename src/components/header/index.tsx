@@ -3,12 +3,12 @@ import { Link } from "gatsby"
 
 import Image from "../image"
 import LanguageSwitcher from "./language-switcher"
-import { Theme } from "../../layouts"
 import { useSiteLanguage } from "../../hooks/use-site-language"
+import { ThemeType } from "../../layouts"
 
 type Props = {
   layout?: "base"
-  theme: Theme
+  theme: ThemeType
 }
 
 const Header: React.FC<Props> = ({ layout, theme }) => {

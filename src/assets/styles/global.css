@@ -347,6 +347,20 @@ body {
   min-height: calc(100vh - 160px);
 }
 
+.friend-details .empty {
+  width: 100%;
+  height: calc(100% - 160px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.friend-details .empty p {
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+
 .friend-details > .go-back {
   text-align: left;
   margin-bottom: 10px;

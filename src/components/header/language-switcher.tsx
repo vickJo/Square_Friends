@@ -2,7 +2,7 @@ import React from "react"
 import { LanguageContext } from "../../util/contexts"
 import storage from "../../util/storage"
 
-const LanguageSwicher: React.FC<{}> = () => {
+const LanguageSwicher: React.FC = () => {
   const { setLanguage, language } = React.useContext(LanguageContext)
 
   React.useEffect(() => {
