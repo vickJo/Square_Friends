@@ -1,7 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
 
-import { cacheActiveFriend, FriendContext } from "../util/contexts"
 import Data from "../data/friendsList.json"
 import storage from "../util/storage"
 
@@ -16,9 +14,7 @@ export interface IFriendPayload {
   following: boolean
 }
 
-function useGetFriends() {
-  const { setActiveFriend } = React.useContext(FriendContext)
-
+function useSiteFriends() {
   const [friends, setFriends] = React.useState<IFriendPayload[]>(() => {
     const cachedData = storage.get(STORAGE_KEY)
 
@@ -42,20 +38,15 @@ function useGetFriends() {
     []
   )
 
-  const viewFriendDetails = React.useCallback(
-    (friend: IFriendPayload) => () => {
-      setActiveFriend(friend)
-      cacheActiveFriend(friend)
-      navigate("/friend-details")
-    },
-    []
-  )
+  const getFriend = (friendId: string) => {
+    return friends.filter(({ id }) => id === +friendId)[0]
+  }
 
   React.useEffect(() => {
     storage.set(STORAGE_KEY, friends)
   }, [friends])
 
-  return { friends, toggleFavorite, viewFriendDetails }
+  return { friends, toggleFavorite, getFriend }
 }
 
-export { useGetFriends }
+export { useSiteFriends }

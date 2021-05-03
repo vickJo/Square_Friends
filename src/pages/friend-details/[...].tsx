@@ -1,32 +1,21 @@
 import React from "react"
 import { Link, PageProps } from "gatsby"
 
-import SEO from "../components/seo"
-import Image from "../components/image"
-import { useSiteFiles } from "../hooks/use-site-files"
-import { clearActiveFriend, FriendContext } from "../util/contexts"
-import { useSiteLanguage } from "../hooks/use-site-language"
+import SEO from "../../components/seo"
+import Image from "../../components/image"
+import { useSiteFiles } from "../../hooks/use-site-files"
+import { useSiteLanguage } from "../../hooks/use-site-language"
+import { useSiteFriends } from "../../hooks/use-site-friends"
 
-const FriendDetails: React.FC<PageProps> = () => {
-  const { dictionary } = useSiteLanguage()
+const FriendDetails: React.FC<PageProps> = ({ params }) => {
   const files = useSiteFiles()
-  const { activeFriend: friend, setActiveFriend } = React.useContext(
-    FriendContext
-  )
+  const { getFriend } = useSiteFriends()
+  const { dictionary } = useSiteLanguage()
 
-  React.useEffect(() => {
-    return () => {
-      clearActiveFriend()
-      setActiveFriend(null)
-    }
-  }, [])
-
-  if (!friend) {
-    return null
-  }
+  const friend = getFriend(params["*"])
 
   const cover = files.filter(
-    file => +file.name === friend.id && file.relativeDirectory === "covers"
+    file => +file.name === friend?.id && file.relativeDirectory === "covers"
   )[0]
 
   return (
@@ -37,7 +26,11 @@ const FriendDetails: React.FC<PageProps> = () => {
         <Link to="/">{dictionary.homeBackLink}</Link>
       </div>
 
-      {!friend ? null : (
+      {!friend ? (
+        <div className="empty">
+          <p>No friend found!</p>
+        </div>
+      ) : (
         <>
           <div className="images">
             <div

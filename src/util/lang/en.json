@@ -13,5 +13,7 @@
   "nothingHere": "We've got nothing here",
   "goHome": "Go Home",
   "search": "Search",
-  "connectedOn": "Connected on"
+  "connectedOn": "Connected on",
+  "darkTheme": "Dark Theme",
+  "lightTheme": "Light Theme"
 }
