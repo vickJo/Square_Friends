@@ -17,4 +17,4 @@ Run `npm install` to pull the application dependencies then `npm run start` or `
 
 ## Live Url
 
-This application is hosted on Netlify and can be accessed [https://squarefriends.netlify.app/](here)
+This application is hosted on Netlify and can be accessed [here](https://squarefriends.netlify.app/)
