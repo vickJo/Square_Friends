@@ -1,6 +1,6 @@
 ## Square_Friends
 
-A React application built with Typescript and using Gatsby Framework
+A simple React application leveraging Typescript and Gatsby framework
 
 ## Developer Setup
 
