@@ -1,12 +1,12 @@
-# Square_Friends
+## Square_Friends
 
 A React application built with Typescript and using Gatsby Framework
 
-# Developer Setup
+## Developer Setup
 
 Run `npm install` to pull the application dependencies then `npm run start` or `gatsby build` to run the application in a development environment
 
-# Features
+## Features
 
 - View Friends List
 - Friend Details Page
@@ -15,6 +15,6 @@ Run `npm install` to pull the application dependencies then `npm run start` or `
 - Mobile Responsiveness
 - Codacy integrated into the application's repository
 
-# Live Url
+## Live Url
 
-This application is hosted on Netlify at [https://squarefriends.netlify.app/]
+This application is hosted on Netlify and can be accessed [https://squarefriends.netlify.app/](here)
