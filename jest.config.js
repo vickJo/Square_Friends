@@ -12,6 +12,7 @@ module.exports = {
     __PATH_PREFIX__: ``,
   },
   testURL: `http://localhost`,
+  testEnvironment: `jsdom`,
   setupFiles: [`<rootDir>/setup-files.js`],
   setupFilesAfterEnv: [`@testing-library/jest-dom/extend-expect`],
 }
